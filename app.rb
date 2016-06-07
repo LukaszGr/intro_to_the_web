@@ -17,7 +17,17 @@ get '/conan' do
   "barbarian"
 end
 
-get '/cat' do
+get '/random-cat' do
   @name = ["Amigo","Oscar","Viking"].sample
   erb(:index)
+end
+
+post '/named-cat' do
+  p params
+  @name = params[:name]
+  erb(:index)
+end
+
+head '/post-cat' do
+  erb(:index_post)
 end
